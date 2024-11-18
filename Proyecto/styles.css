@@ -1,0 +1,664 @@
+/* Página principal */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle, #2d2d2d, #1a1a1a, #000000); 
+    margin: 0;
+    padding: 0;
+    color: #b3b3b3; /* Color de texto */
+    height: 100vh;
+    overflow: auto; /* Permite desplazamiento en páginas largas */
+    position: relative;
+}
+
+/* Animación de partículas de fondo */
+.index-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/eGXzF7U.png') repeat;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Header general */
+header {
+    background: rgba(40, 84, 84, 0.329);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    position: sticky;
+    top: 0; /* Pegado a la parte superior al desplazarse */
+    z-index: 10; /* Asegura que esté sobre otros elementos */
+}
+
+.resgistro-page header {
+    background: rgba(40, 84, 84, 0.329);
+    padding: 100px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    position: sticky;
+    top: 0; /* Pegado a la parte superior al desplazarse */
+    z-index: 10; /* Asegura que esté sobre otros elementos */
+}
+
+/* Footer general */
+footer {
+    background: rgb(4, 6, 6);
+    padding: 10px;
+    text-align: center;
+    color: #00ffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(12, 23, 143, 0.6);
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Contenedor */
+.index-page .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* Ajustado para no cubrir el header y footer */
+    width: 100%;
+}
+
+.index-page .col {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.6), 0 0 40px rgba(255, 165, 0, 0.4);
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    border: 2px solid rgba(255, 165, 0, 0.5); /* Bordes metálicos */
+}
+
+/* Estilo específico para registro-page */
+.registro-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh; /* Permite crecer con el contenido */
+    padding: 20px; /* Espaciado interno */
+    overflow: auto; /* Permite desplazamiento si es necesario */
+    position: relative;
+}
+
+/* Título */
+.index-page h1,
+.registro-page header h3,
+.eliminar-usuario h1,
+.login-error h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Color dorado */
+    text-align: center;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+    animation: glow 1.5s infinite;
+}
+
+/* Formulario */
+.index-page form,
+.registro-page form,
+.eliminar-usuario form,
+.login-error form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Inputs */
+.index-page input[type="text"],
+.registro-page input[type="text"],
+.registro-page input[type="mail"],
+.registro-page input[type="password"],
+.eliminar-usuario input[type="text"],
+.login-error input[type="text"],
+.index-page input[type="password"] {
+    background: rgba(10, 15, 25, 0.9); 
+    border: 2px solid rgba(0, 170, 255, 0.5); 
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px; /* Limita el ancho máximo */
+    color: #00aaff; 
+    text-shadow: 0 0 5px rgba(0, 170, 255, 0.6);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
+}
+
+.index-page input:focus,
+.registro-page input:focus,
+.eliminar-usuario input:focus,
+.login-error input:focus {
+    border-color: #ffcc00;
+    outline: none;
+    transform: scale(1.05);
+}
+
+/* Ajuste específico para login-error */
+.login-error input[type="text"],
+.login-error input[type="password"] {
+    width: 80%; /* Ajusta el ancho */
+    max-width: 300px; /* Asegura que el campo no exceda un cierto ancho */
+    margin-left: auto; /* Centra el campo horizontalmente */
+    margin-right: auto; /* Centra el campo horizontalmente */
+}
+
+.eliminar-usuario input[type="text"] {
+    width: 80%; /* Ajusta el ancho o */
+    max-width: 300px; /* Asegura que el campo no exceda un cierto ancho */
+    margin-left: auto; /* Centra el campo horizontalmente */
+    margin-right: auto; /* Centra el campo horizontalmente */
+}
+
+/* Botones */
+.index-page button[type="submit"],
+.registro-page button[type="submit"],
+.eliminar-usuario button[type="submit"],
+.login-error button[type="submit"] {
+    background: linear-gradient(90deg, rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0.5)); 
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+}
+
+.index-page button:hover,
+.registro-page button:hover,
+.eliminar-usuario button:hover,
+.login-error button:hover {
+    background: rgba(255, 165, 0, 1); /* Naranja metálico al pasar el ratón */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
+}
+
+/* Enlaces */
+.registro-page a,
+.eliminar-usuario a,
+.login-error a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #ffcc00; /* Color dorado */
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.registro-page a:hover,
+.eliminar-usuario a:hover,
+.login-error a:hover {
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Brillo dorado al pasar el ratón */
+}
+
+/* Animación de brillo */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00; }
+    50% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; }
+    100% { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00; }
+}
+
+/* Estilo para página principal (específico de .principal) */
+.principal {
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle, #2d2d2d, #1a1a1a, #000000); 
+    margin: 0;
+    padding: 20px;
+    color: #b3b3b3; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.principal h1 {
+    font-size: 32px;
+    color: #ffcc00; /* Color dorado */
+    text-align: center;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+    animation: glow 1.5s infinite;
+    margin-bottom: 20px;
+}
+
+.principal .btn {
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0.5)); 
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+    margin: 10px;
+}
+
+.principal .btn:hover {
+    background: rgba(255, 165, 0, 1);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
+}
+
+.principal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.principal th,
+.principal td {
+    border: 2px solid rgba(255, 165, 0, 0.5); 
+    padding: 10px;
+    text-align: left;
+    color: #ffcc00; 
+}
+
+.principal th {
+    background: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.6); /* Sombra metálica */
+}
+
+.principal tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.principal tr:hover {
+    background: rgba(255, 165, 0, 0.2); /* Color metálico al pasar el ratón */
+}
+
+/* Header específico para la página de eliminación */
+header {
+    background: rgba(40, 84, 84, 0.329);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+header h3 {
+    color: #ffcc00; /* Color dorado */
+    font-size: 36px;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+    animation: glow 1.5s infinite;
+}
+
+
+/* Página principal */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle, #1e2a47, #243f65, #4a6586); /* Tonos azules metálicos */
+    margin: 0;
+    padding: 0;
+    color: #00aaff; /* Azul metálico claro */
+    height: 100vh;
+    overflow: auto;
+    position: relative;
+}
+
+/* Animación de partículas de fondo */
+.index-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/eGXzF7U.png') repeat;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Header general */
+header {
+    background: rgba(30, 44, 71, 0.8); /* Azul oscuro metálico */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.6); /* Resplandor metálico */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    color: #00aaff;
+    font-size: 36px;
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff;
+    animation: glow 1.5s infinite;
+}
+
+/* Footer general */
+footer {
+    background: rgba(20, 25, 28, 0.6);
+    padding: 10px;
+    text-align: center;
+    color: #00aaff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Contenedor */
+.index-page .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    width: 100%;
+}
+
+.index-page .col {
+    background: rgba(20, 30, 50, 0.85); /* Fondo oscuro metálico */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.6), 0 0 40px rgba(0, 170, 255, 0.4);
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    border: 2px solid rgba(0, 170, 255, 0.5);
+}
+
+/* Estilo específico para registro-page */
+.registro-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+}
+
+/* Título */
+.index-page h1,
+.registro-page header h3,
+.eliminar-usuario h1,
+.login-error h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #00aaff;
+    text-align: center;
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff;
+    animation: glow 1.5s infinite;
+}
+
+/* Formulario */
+.index-page form,
+.registro-page form,
+.eliminar-usuario form,
+.login-error form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Inputs */
+.index-page input[type="text"],
+.registro-page input[type="text"],
+.registro-page input[type="mail"],
+.registro-page input[type="password"],
+.eliminar-usuario input[type="text"],
+.login-error input[type="text"],
+.login-error input[type="password"] {
+    background: rgba(10, 15, 25, 0.9); /* Fondo oscuro metálico */
+    border: 2px solid rgba(0, 170, 255, 0.5);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px; /* Limita el ancho máximo */
+    color: #00aaff;
+    text-shadow: 0 0 5px rgba(0, 170, 255, 0.6);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
+}
+
+
+.index-page input:focus,
+.registro-page input:focus,
+.eliminar-usuario input:focus,
+.login-error input:focus {
+    border-color: #00aaff;
+    outline: none;
+    transform: scale(1.05);
+}
+
+/* Botones */
+.index-page button[type="submit"],
+.registro-page button[type="submit"],
+.eliminar-usuario button[type="submit"],
+.login-error button[type="submit"] {
+    background: linear-gradient(90deg, rgba(0, 170, 255, 0.8), rgba(0, 170, 255, 0.5));
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
+}
+
+.index-page button:hover,
+.registro-page button:hover,
+.eliminar-usuario button:hover,
+.login-error button:hover {
+    background: rgba(0, 170, 255, 1);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.8);
+}
+
+/* Enlaces */
+.registro-page a,
+.eliminar-usuario a,
+.login-error a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #00aaff;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.registro-page a:hover,
+.eliminar-usuario a:hover,
+.login-error a:hover {
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.8);
+}
+
+/* Animación de brillo */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff; }
+    50% { text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff; }
+    100% { text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff; }
+}
+
+/* Estilo para página principal (específico de .principal) */
+.principal {
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle, #1e2a47, #243f65, #4a6586);
+    margin: 0;
+    padding: 20px;
+    color: #00aaff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.principal h1 {
+    font-size: 32px;
+    color: #00aaff;
+    text-align: center;
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff;
+    animation: glow 1.5s infinite;
+    margin-bottom: 20px;
+}
+
+.principal .btn {
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(0, 170, 255, 0.8), rgba(0, 170, 255, 0.5));
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
+    margin: 10px;
+}
+
+.principal .btn:hover {
+    background: rgba(0, 170, 255, 1);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.8);
+}
+
+.principal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.principal th,
+.principal td {
+    border: 2px solid rgba(0, 170, 255, 0.5);
+    padding: 10px;
+    text-align: left;
+    color: #00aaff;
+}
+
+.principal th {
+    background: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 5px rgba(0, 170, 255, 0.6);
+}
+
+.principal tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.principal tr:hover {
+    background: rgba(0, 170, 255, 0.2);
+}
+
+/* Header específico para la página de eliminación */
+header {
+    background: rgba(30, 44, 71, 0.8);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+header h3 {
+    color: #00aaff;
+    font-size: 36px;
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff;
+    animation: glow 1.5s infinite;
+}
+
+.registro-page h3 {
+    color: #00aaff;
+    font-size: 36px;
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff;
+    animation: glow 1.5s infinite;
+}
+
+.logo {
+    height: 100px;
+    margin-right: 15px;
+}
+
+.enviar {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 700px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 255, 234, 0.2), rgba(0, 0, 50, 0.8));
+    border: 2px solid rgba(0, 255, 234, 0.8); /* Bordes brillantes */
+    border-radius: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ffe7;
+    box-shadow: 0 0 20px rgba(0, 255, 234, 0.5), inset 0 0 10px rgba(0, 0, 50, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.enviar h1 {
+    font-size: 2em;
+    color: #00ffe7;
+    text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+}
+
+.enviar a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #00ffe7;
+    background: rgba(0, 0, 50, 0.8);
+    border: 2px solid rgba(0, 255, 234, 0.8);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 255, 234, 0.5);
+}
+
+.enviar a:hover {
+    background: rgba(0, 255, 234, 0.8);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 234, 1);
+    transform: scale(1.1);
+}
+
