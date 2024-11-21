@@ -1,6 +1,6 @@
 <?php
 session_start();
-$no_cuenta = $_SESSION['usermane']; //1234567890
+$no_cuenta = $_SESSION['usermane']; //1234567890, pass: 12345
 
 if (!isset($no_cuenta)) {
     header("location: ./index.php");
@@ -51,7 +51,7 @@ if (!isset($no_cuenta)) {
                 <input type="mail" name="correo" required maxlength="100" placeholder="Ingresa tu correo">
                 <br><br>
                 <label for="universo">Universo:</label>
-                <input type="text" name="universo" required maxlength="100" placeholder="Universo al que perteneces">
+                <input type="text" name="universo" required maxlength="10" placeholder="Máximo 10 dígitos">
                 <br><br>
                 <label for="password">Contraseña:</label>
                 <input type="password" name="password" required maxlength="8" placeholder="Ingresa tu contraseña">
